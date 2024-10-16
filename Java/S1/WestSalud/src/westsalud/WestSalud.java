@@ -8,18 +8,12 @@ public class WestSalud {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /** Le pedimos al usuario que ingrese su contraseña
-         * REQUERIMIENTOS:
-         * Debe tener un largo mínimo de 6 caracteres.
-         * Debe tener al menos una letra. Se permiten mayúsculas y minúsculas.
-         * Debe tener al menos un número.
-         * Debe tener al menos un carácter que no sea letra ni número.
-         */
+        // Le pedimos al usuario que ingrese su contraseña
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese la clave de seguridad:");
         String password = scan.next();
 
-        // Creamos una instancia de PasswordManager
+        // Definimos PasswordManager para poder utilizar sus clases
         PasswordManager passwordManager = new PasswordManager(password);
 
         // Validar la contraseña e imprimir el resultado

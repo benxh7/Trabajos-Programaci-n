@@ -1,5 +1,16 @@
 package westsalud;
 
+/**
+ * Esta clase se encarga de hacer comprobaciones para estar seguros
+ * de que la contraseña cumple los parametros requeridos.
+ * 
+ * REQUERIMIENTOS:
+ * Debe tener un largo mínimo de 6 caracteres.
+ * Debe tener al menos una letra. Se permiten mayúsculas y minúsculas.
+ * Debe tener al menos un número.
+ * Debe tener al menos un carácter que no sea letra ni número.
+ */
+
 public class PasswordManager {
     private String password;
 
