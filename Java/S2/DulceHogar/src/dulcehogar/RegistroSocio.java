@@ -152,10 +152,10 @@ public class RegistroSocio {
         // Mostramos los pagos realizados, para trazabilidad.
         List<RegistroPago> pagos = pagosRealizados.get(socio.getNumDeSocio());
         if (pagos == null || pagos.isEmpty()) {
-            System.out.println("Registro de Transferencia (0):");
+            System.out.println("\nRegistro de Transferencia (0):");
             System.out.println("- Sus cuotas pendientes no han sido pagadas.");
         } else {
-            System.out.println("Registro de Transferencia (" + pagos.size() + "):");
+            System.out.println("\nRegistro de Transferencia (" + pagos.size() + "):");
             int contador = 1;
             for (RegistroPago pago : pagos) {
                 System.out.println(" " + contador + ". " + pago.mostrarFechaDePagos());
@@ -173,7 +173,7 @@ public class RegistroSocio {
         // Mostramos los pagos de cuota del usuario
         List<RegistroPago> pagos = pagosRealizados.get(socio.getNumDeSocio());
         if (pagos == null || pagos.isEmpty()) {
-            System.out.println("Cantidad de Cuotas Pagadas (0):");
+            System.out.println("\nCantidad de Cuotas Pagadas (0):");
             System.out.println("- Sus cuotas pendientes no han sido pagadas.");
         } else {
             // Calcular el total de las cuotas pagadas
@@ -233,6 +233,8 @@ public class RegistroSocio {
      */
     private void editarDatosSocio(Socio socio) {
         boolean continuarEdicion = true;
+        
+        verDatosActualesDelSocio(socio);
 
         while (continuarEdicion) {
             // Mostrar los atributos editables - El Numero de Socio y RUN son inmodificables
@@ -324,6 +326,9 @@ public class RegistroSocio {
             }
             // Mostrar un mensaje opcional para continuar editando
             if (continuarEdicion) {
+                
+                verDatosActualesDelSocio(socio);
+                
                 System.out.println("\nPuedes seleccionar otro dato para editar o elegir '10' para salir.");
             }
         }
@@ -423,5 +428,26 @@ public class RegistroSocio {
      */
     public String formatoMonto(int monto) {
         return String.format("$%,d", monto);
+    }
+    
+    /**
+     * Metodo para obtener los datos del socio y enviar el mensaje con su informacion
+     */
+    public void verDatosActualesDelSocio(Socio socio) {
+        System.out.println("------ Datos Actuales del Socio ------");
+        System.out.println(" Número de Socio: " + socio.getNumDeSocio());
+        System.out.println(" RUN: " + socio.getRun());
+        System.out.println(" Nombre: " + socio.getNombre());
+        System.out.println(" Apellido Paterno: " + socio.getApPaterno());
+        System.out.println(" Apellido Materno: " + socio.getApMaterno());
+        System.out.println(" Correo: " + socio.getCorreo());
+        System.out.println(" Domicilio: " + socio.getDomicilio());
+        System.out.println(" Región: " + socio.getRegion());
+        System.out.println(" Ciudad: " + socio.getCiudad());
+        System.out.println(" Comuna: " + socio.getComuna());
+        System.out.println(" Teléfono: " + socio.getTelefono());
+        System.out.println(" Cantidad Aportada: " + formatoMonto(socio.getCantidadAportada()));
+        System.out.println(" Valor de Cuota: " + formatoMonto(socio.getValorDeCuota()));
+        System.out.println("--------------------------------------");
     }
 }

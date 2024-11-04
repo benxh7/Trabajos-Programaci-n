@@ -25,7 +25,7 @@ public class DulceHogar {
             System.out.println(" 5. Selecciona Para Consultar Cuotas Pagadas");
             System.out.println(" 6. Selecciona Para Consultar Total de Cuotas Pagadas");
             System.out.println(" 7. Selecciona Para Salir");
-            System.out.println("-----------------------------");
+            System.out.println("-------------------------------------------------------");
             System.out.print("Por favor, selecciona una opción: ");
             opcion = scan.nextInt();
 
